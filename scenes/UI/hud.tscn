@@ -1,0 +1,76 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqij6jdrx56js"]
+
+[ext_resource type="Texture2D" uid="uid://bqyix6wpuqkg1" path="res://icon.svg" id="1_c4vmg"]
+[ext_resource type="Script" uid="uid://cxjbukjny6xf5" path="res://scenes/UI/health_container.gd" id="1_rd3kb"]
+[ext_resource type="Script" uid="uid://muahrerhdntr" path="res://scenes/UI/hud.gd" id="1_y5tme"]
+[ext_resource type="Texture2D" uid="uid://67xpkp6x1njt" path="res://Assets/HeartContainerModel.png" id="4_0jeyp"]
+[ext_resource type="Script" uid="uid://cqyw37j3lv2np" path="res://scenes/UI/coins_container.gd" id="4_18exe"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_y5tme")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HealthContainer" type="MarginContainer" parent="."]
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 666.0
+offset_bottom = 138.0
+scale = Vector2(0.15, 0.15)
+script = ExtResource("1_rd3kb")
+heart_full_texture = ExtResource("4_0jeyp")
+heart_empty_texture = ExtResource("1_c4vmg")
+
+[node name="HeartsBox" type="GridContainer" parent="HealthContainer"]
+layout_mode = 2
+columns = 5
+
+[node name="TextureRect" type="TextureRect" parent="HealthContainer/HeartsBox"]
+layout_mode = 2
+texture = ExtResource("4_0jeyp")
+
+[node name="TextureRect2" type="TextureRect" parent="HealthContainer/HeartsBox"]
+layout_mode = 2
+texture = ExtResource("4_0jeyp")
+
+[node name="TextureRect3" type="TextureRect" parent="HealthContainer/HeartsBox"]
+layout_mode = 2
+texture = ExtResource("4_0jeyp")
+
+[node name="TextureRect4" type="TextureRect" parent="HealthContainer/HeartsBox"]
+layout_mode = 2
+texture = ExtResource("4_0jeyp")
+
+[node name="TextureRect5" type="TextureRect" parent="HealthContainer/HeartsBox"]
+layout_mode = 2
+texture = ExtResource("4_0jeyp")
+
+[node name="CoinsContainer" type="MarginContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+script = ExtResource("4_18exe")
+
+[node name="CoinBox" type="HBoxContainer" parent="CoinsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="CoinIcon" type="TextureRect" parent="CoinsContainer/CoinBox"]
+layout_mode = 2
+texture = ExtResource("1_c4vmg")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CoinsContainer/CoinBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "0"

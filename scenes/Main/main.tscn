@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://k21bh8cjbtu7"]
+
+[ext_resource type="Script" uid="uid://bsdloajvh675t" path="res://scenes/Main/main.gd" id="1_5wuev"]
+[ext_resource type="PackedScene" uid="uid://3kbe0qxrrdun" path="res://scenes/Player/player.tscn" id="1_gol0p"]
+[ext_resource type="Script" uid="uid://bng1ysqofky63" path="res://Scripts/global.gd" id="1_nyu32"]
+[ext_resource type="Script" uid="uid://jkfg3vm81qtq" path="res://scenes/Player/camera_rig.gd" id="3_px18m"]
+[ext_resource type="PackedScene" uid="uid://dqij6jdrx56js" path="res://scenes/UI/hud.tscn" id="5_rdp1x"]
+[ext_resource type="PackedScene" uid="uid://dorrvsqqsbbq1" path="res://scenes/UI/dialogue_ui.tscn" id="6_nyu32"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_5wuev")
+
+[node name="Global" type="Node3D" parent="."]
+script = ExtResource("1_nyu32")
+
+[node name="Player" parent="." instance=ExtResource("1_gol0p")]
+
+[node name="HUD" parent="." instance=ExtResource("5_rdp1x")]
+
+[node name="DialogueUI" parent="HUD" instance=ExtResource("6_nyu32")]
+
+[node name="CameraRig" type="Node3D" parent="." node_paths=PackedStringArray("player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+script = ExtResource("3_px18m")
+player = NodePath("../Player")
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766045, 0, -0.766045, 0.642788, 0, 0, 7)
+
+[node name="LevelRoot" type="Node3D" parent="."]

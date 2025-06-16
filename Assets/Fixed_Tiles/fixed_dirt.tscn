@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce6dgy3wuvqtf"]
+
+[ext_resource type="PackedScene" uid="uid://bjyeaeuaowuro" path="res://Assets/GLB format/dirt.glb" id="1_yftgl"]
+
+[node name="dirt_fixed" instance=ExtResource("1_yftgl")]
+
+[node name="dirt" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)

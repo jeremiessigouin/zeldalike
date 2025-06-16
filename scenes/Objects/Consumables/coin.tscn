@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dil5aiwc1k6q2"]
+
+[ext_resource type="Script" uid="uid://dag0so6m3neog" path="res://scenes/Objects/Consumables/coin.gd" id="1_1htet"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jnmtu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8m6x6"]
+albedo_color = Color(1, 1, 0.0784314, 1)
+metallic = 0.5
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_uiey2"]
+height = 0.05
+radius = 0.245605
+
+[node name="Coin" type="Area3D"]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, 0)
+collision_layer = 4
+script = ExtResource("1_1htet")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.32, 0, 0, 0, -1.74845e-09, -0.36, 0, 0.04, -1.57361e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_jnmtu")
+surface_material_override/0 = SubResource("StandardMaterial3D_8m6x6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, -3.49691e-08, -0.8, 0, 0.8, -3.49691e-08, 0, -0.00154933, 0)
+shape = SubResource("CylinderShape3D_uiey2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

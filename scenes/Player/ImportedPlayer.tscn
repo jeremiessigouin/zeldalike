@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4jlccuaeoh6j"]
+
+[ext_resource type="PackedScene" uid="uid://bmiph65v6ytq6" path="res://BlenderImports/Player/Player.glb" id="1_5atlx"]
+[ext_resource type="Script" uid="uid://bq5nroosskcqi" path="res://scenes/Player/imported_player.gd" id="1_wctrc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5atlx"]
+height = 1.6
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_wctrc")
+
+[node name="Graphics" type="Node3D" parent="."]
+
+[node name="Player" parent="Graphics" instance=ExtResource("1_5atlx")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Graphics/Player/PlayerSkeleton" index="0"]
+bones/0/position = Vector3(0, 0.810198, 0)
+bones/0/rotation = Quaternion(0, 0, 0, 1)
+bones/1/rotation = Quaternion(0.0523802, -0.00303417, -0.0142315, 0.998521)
+bones/2/rotation = Quaternion(1.86265e-09, 1.19267e-07, 4.65661e-10, 1)
+bones/3/rotation = Quaternion(1.86265e-09, 0, 4.65661e-10, 1)
+bones/4/rotation = Quaternion(0.0976852, -0.238018, -0.754132, 0.604227)
+bones/5/rotation = Quaternion(0.352582, -0.0466156, -0.346611, 0.867971)
+bones/6/rotation = Quaternion(0.201189, -0.0420392, -0.223491, 0.952789)
+bones/7/rotation = Quaternion(0.450508, 0.361424, 0.56911, 0.58526)
+bones/8/rotation = Quaternion(0.281363, 0.23972, 0.699435, 0.611686)
+bones/9/rotation = Quaternion(0.45574, -0.0610159, 0.327564, 0.825397)
+bones/10/rotation = Quaternion(0.325328, 0.314281, 0.201022, 0.868895)
+bones/11/rotation = Quaternion(0.955298, 0.0445636, 0.107944, 0.271604)
+bones/12/rotation = Quaternion(0.432466, 2.76996e-05, -0.0296385, 0.901163)
+bones/12/scale = Vector3(1, 0.99999, 1)
+bones/13/rotation = Quaternion(0.973254, -0.0849665, 0.104212, 0.186274)
+bones/14/rotation = Quaternion(0.436642, -2.76403e-05, 0.0299247, 0.899137)
+bones/14/scale = Vector3(1, 0.99999, 1.00001)
+bones/16/position = Vector3(0.367372, 0.0274722, 0.0849308)
+bones/17/position = Vector3(-0.388203, 0.487253, 0.374391)
+bones/18/position = Vector3(-0.347007, 0.0274722, -0.0954531)
+
+[node name="AnimationPlayer" parent="Graphics/Player" index="1"]
+autoplay = "PlayerIdle"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_5atlx")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 10, 0)
+
+[editable path="Graphics/Player"]

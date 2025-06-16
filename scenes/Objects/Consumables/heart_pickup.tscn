@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=3 uid="uid://nb7nopucf7tk"]
+
+[ext_resource type="Script" uid="uid://bhyt06mhvhx7n" path="res://scenes/Objects/Consumables/heart_pickup.gd" id="1_medwc"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_medwc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ldf4s"]
+albedo_color = Color(1, 0.0509804, 0.0313726, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b5g51"]
+albedo_color = Color(1, 0.0509804, 0.0313726, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_c08ur"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_medwc"]
+albedo_color = Color(1, 0.0509804, 0.0313726, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_soicc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c08ur"]
+albedo_color = Color(1, 0.0509804, 0.0313726, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_medwc"]
+radius = 0.0541856
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ldf4s"]
+radius = 0.256048
+
+[node name="HeartPickup" type="RigidBody3D"]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("1_medwc")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.259808, -0.15, 6.55671e-09, 0, -1.31134e-08, -0.3, 0.15, 0.259808, -1.13566e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_medwc")
+material = SubResource("StandardMaterial3D_ldf4s")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.259808, 0.15, -6.55671e-09, 5.33227e-16, -1.31134e-08, -0.3, -0.15, 0.259808, -1.13565e-08, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_medwc")
+material = SubResource("StandardMaterial3D_b5g51")
+
+[node name="CSGMesh3D3" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.222171, 0.201594, -8.81194e-09, 8.2536e-16, -1.31134e-08, -0.3, -0.201594, 0.222171, -9.7114e-09, -0.226077, 0, 0.134962)
+operation = 2
+mesh = SubResource("BoxMesh_c08ur")
+material = SubResource("StandardMaterial3D_medwc")
+
+[node name="CSGMesh3D4" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.20432, -0.219667, 9.60193e-09, 1.95944e-15, -1.31134e-08, -0.3, 0.219667, 0.20432, -8.9311e-09, 0.19744, 0, 0.151962)
+operation = 2
+mesh = SubResource("BoxMesh_soicc")
+material = SubResource("StandardMaterial3D_c08ur")
+
+[node name="CSGMesh3D5" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(0.212132, -0.212132, 9.27258e-09, 1.43112e-16, -1.31134e-08, -0.3, 0.212132, 0.212132, -9.27258e-09, -0.0166285, 0, 0.351063)
+operation = 2
+mesh = SubResource("BoxMesh_soicc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00851566, 5.96046e-08, -0.0804071)
+shape = SubResource("SphereShape3D_medwc")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.027272, 0, -0.0427118)
+shape = SubResource("SphereShape3D_ldf4s")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
