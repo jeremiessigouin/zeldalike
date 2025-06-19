@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var player: Node3D 
-@export var height := 10.0
+@export var height := 6.5
 @export var distance := 0.0
 @export var smooth_speed := 5.0
 

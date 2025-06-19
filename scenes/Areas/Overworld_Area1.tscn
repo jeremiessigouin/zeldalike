@@ -103,6 +103,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3, 1.5, 9.5)
 [node name="TallGrass3" parent="Objects" instance=ExtResource("4_2wsv2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7, 1.5, 10.2)
 
+[node name="HeartPickup2" parent="Objects" instance=ExtResource("5_incc2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2, 1.1, 4.8)
+
+[node name="HeartPickup3" parent="Objects" instance=ExtResource("5_incc2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2, 1.1, 6.4)
+
 [node name="SpawnPoint" type="Node3D" parent="."]
 transform = Transform3D(2.52, 0, 0, 0, 1, 0, 0, 0, 5.76, -19.7, 1, 0.9)
 
@@ -116,15 +122,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8, 1.5, -2.4)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AreaChange/CaveLoading"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1, 2.5, -9.2)
 shape = SubResource("BoxShape3D_5ibuh")
-
-[node name="EnemyTemplate" parent="." instance=ExtResource("1_82y2s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.8, 2, -4)
-
-[node name="EnemyTemplate2" parent="." instance=ExtResource("1_82y2s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 2, -1.6)
-
-[node name="HeartPickup" parent="." instance=ExtResource("5_incc2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.2, 1.1, 4.8)
-
-[node name="HeartPickup2" parent="." instance=ExtResource("5_incc2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2, 1.1, 6.4)

@@ -1,17 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://3kbe0qxrrdun"]
+[gd_scene load_steps=9 format=3 uid="uid://3kbe0qxrrdun"]
 
 [ext_resource type="Script" uid="uid://dhjurwx5dfykt" path="res://scenes/Player/player.gd" id="1_cyojo"]
+[ext_resource type="PackedScene" uid="uid://jyyiqhc2wi3s" path="res://Assets/Player/SM_HumanMan_180cm.glb" id="2_1kbk7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kk62l"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_cyojo"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1kbk7"]
-albedo_color = Color(0.152941, 0.478431, 0.270588, 1)
+height = 1.85933
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cyojo"]
-radius = 1.5
-height = 3.2
+radius = 1.64619
+height = 3.29238
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_cyojo"]
 
@@ -80,14 +77,14 @@ _data = {
 collision_mask = 30
 script = ExtResource("1_cyojo")
 
+[node name="SM_HumanMan_180cm2" parent="." instance=ExtResource("2_1kbk7")]
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.925934, 0)
 shape = SubResource("CapsuleShape3D_kk62l")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_cyojo")
-surface_material_override/0 = SubResource("StandardMaterial3D_1kbk7")
-
 [node name="SwordAttack" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02165, 0)
 
 [node name="SwordArea" type="Area3D" parent="SwordAttack"]
 collision_mask = 6

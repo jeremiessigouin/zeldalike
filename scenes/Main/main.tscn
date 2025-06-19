@@ -20,11 +20,11 @@ script = ExtResource("1_nyu32")
 [node name="DialogueUI" parent="HUD" instance=ExtResource("6_nyu32")]
 
 [node name="CameraRig" type="Node3D" parent="." node_paths=PackedStringArray("player")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.5, 0)
 script = ExtResource("3_px18m")
 player = NodePath("../Player")
 
 [node name="Camera3D" type="Camera3D" parent="CameraRig"]
-transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766045, 0, -0.766045, 0.642788, 0, 0, 7)
+transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766044, 0, -0.766044, 0.642788, 0, 0, 5)
 
 [node name="LevelRoot" type="Node3D" parent="."]

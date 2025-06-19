@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4kj68qyv52be"]
+
+[ext_resource type="PackedScene" uid="uid://cb62trcvbe7dk" path="res://Assets/Cave/SM_FloorPH2x2.glb" id="1_36273"]
+
+[node name="GM_Cave" type="Node3D"]
+
+[node name="SM_FloorPH2x2" parent="." instance=ExtResource("1_36273")]
